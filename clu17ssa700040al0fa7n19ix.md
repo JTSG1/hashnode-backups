@@ -5,6 +5,7 @@ seoDescription: "Discover how to effortlessly transition between local and GCP e
 datePublished: Thu Mar 21 2024 12:34:42 GMT+0000 (Coordinated Universal Time)
 cuid: clu17ssa700040al0fa7n19ix
 slug: including-selective-dependencies-in-maven-project
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1711024502340/ee59cbab-3fc8-4dae-a4b7-ee85303bc820.webp
 ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1711024476780/53c59aa2-cc1a-49e5-bd0c-dbf028c8eba4.webp
 tags: java, maven, testing, gcp, profiles
 
