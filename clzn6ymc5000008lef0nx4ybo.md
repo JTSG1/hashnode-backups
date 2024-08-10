@@ -1,7 +1,7 @@
 ---
 title: "Set up a CI/CD server and Configure for use with Private Github Repositories"
 seoTitle: "Set up a CI/CD server and Configure for use with Private Github Reposi"
-seoDescription: "An article going into setting up a Jenkins instance and configuring it to work with Private Github Repositories "
+seoDescription: "An article going into setting up a Jenkins instance and configuring it to work with Private Github Repositories"
 datePublished: Fri Aug 09 2024 21:00:42 GMT+0000 (Coordinated Universal Time)
 cuid: clzn6ymc5000008lef0nx4ybo
 slug: set-up-a-cicd-server-and-configure-for-use-with-private-github-repositories
@@ -10,17 +10,17 @@ tags: python, django, jenkins, pipeline, ci-cd
 
 ---
 
-Recently I have been exploring more Devops subjects and have been interested in setting up a CI/CD pipeline for a private project I have been working on when time allows.
+Recently I have been exploring more Devops subjects and have been interested in setting up a CI/CD pipeline for a private project I have been working on.
 
-This article covers the basics of setting up a private Jenkins instance (customised with Python) using Docker (In my case I am hosting on a Raspberry Pi 5 but the instructions below are not exclusive to that host), setting up a Github PAT, registering that credential within Jenkins and configuring Jenkins to read a private repository.
+This article covers the basics of setting up a private Jenkins instance (customised with Python) using Docker, setting up a Github PAT, registering that credential within Jenkins and configuring Jenkins to read a private repository.
 
 ## Setting up Jenkins on Docker
 
-I will use Docker Compose to set up the Jenkins environment. a
+I will use Docker Compose to set up the Jenkins environment.
 
-I did these steps directly from the host that was running my 'prod' Docker instance
+I did these steps directly from the host that was running my 'prod' Docker instance, in my case its a Raspberry Pi 5 running Ubuntu.
 
-I want to customise the Jenkins base image to include bash and python as my project is Django based. In order to achieve this i first create a folder on my Raspberry Pi called Jenkins and change directory into that folder.
+I want to customise the Jenkins base image to include bash and python as my project is Django based. In order to achieve this I first create a folder on my Raspberry Pi called Jenkins and change directory into that folder.
 
 ```bash
 mkdir jenkins
@@ -52,7 +52,7 @@ USER jenkins
 Now create a file called docker-compose.yaml in a folder on your system. and populate it like the below:
 
 ```yaml
-ersion: '3.8'
+Version: '3.8'
 services:
   jenkins:
     build: . 
