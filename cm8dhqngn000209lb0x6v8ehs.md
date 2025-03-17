@@ -12,6 +12,8 @@ tags: kubernetes, helm, container-orchestration
 
 Over the past year, my role has increasingly involved containerization technology, particularly Kubernetes. Kubernetes is a fantastic tool for deploying applications and enabling them to scale according to demand. Once you're comfortable with these technologies, you can really start to leverage the power of elastic computing.
 
+A supporting repo can be found here: [https://github.com/JTSG1/helm-kubernetes-tutorial](https://github.com/JTSG1/helm-kubernetes-tutorial)
+
 ## Kubernetes
 
 Kubernetes is a container orchestration platform. It allows you to take your Docker images and build production-ready workloads using YAML files. These files can be version-controlled and deployed through automated CI/CD pipelines. Sounds great, right?
@@ -273,7 +275,7 @@ spec:
     targetPort: 8080
   selector:
     app: kafka-sample
-  type: LoadBalancer            
+  type: LoadBalancer
 ```
 
 **default-serviceaccount.yaml**
