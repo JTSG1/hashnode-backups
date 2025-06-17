@@ -27,6 +27,8 @@ mkdir jenkins
 cd jenkins
 ```
 
+### The Dockerfile
+
 Now I want to create a Dockerfile, I achieve this by running
 
 ```bash
@@ -49,7 +51,7 @@ RUN apt-get update && \
 USER jenkins
 ```
 
-Now create a file called docker-compose.yaml in a folder on your system. and populate it like the below:
+Now create a file called docker-compose.yaml in the same folder as the above Dockerfile. and populate it like the below:
 
 ```yaml
 version: '3.8'
@@ -68,7 +70,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-*Create a .env file next to docker-compose.yaml with myname=&lt;your-linux-user&gt; or export myname before you run docker-compose. (Or simply replace this value in the docker-compose file before you run it with your Linux username)*
+***${myname}:*** *Create a .env file next to docker-compose.yaml with myname=&lt;your-linux-user&gt; or export myname before you run docker-compose. (Or simply replace this value in the docker-compose file before you run it with your Linux username)*
 
 **Security note**: The Compose file above used to set privileged: true in an older revision of this article. This hands the Jenkins container full root-level control of the host. That’s convenient for personal experiments, but it is not recommended for production or shared hardware.
 
@@ -84,6 +86,8 @@ In serious environments:
     
 
 Worth noting in this instance, I am using the build field rather than specifying a pre-created image. This means that when I run Docker Compose it will run the dockerfile that is in the same directory to build the image before deploying the image to a running container.
+
+### Starting Jenkins
 
 Once this file is created you can run the command below to run it. I have added the --build argument to ensure the image is built each time rather than using a cached copy and also the -d arg to detach from the process
 
