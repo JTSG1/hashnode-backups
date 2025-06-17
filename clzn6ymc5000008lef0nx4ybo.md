@@ -56,8 +56,8 @@ version: '3.8'
 services:
   jenkins:
     build: . 
-    privileged: true
-    user: root
+    user: "1000:1000"                  # UID:GID that exists on the host
+    group_add: ["docker"]              # lets Jenkins run `docker build`
     restart: always
     ports:
       - 8090:8080
@@ -68,7 +68,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-Security note: The Compose file above sets privileged: true, which hands the Jenkins container full root-level control of the host. That’s convenient for personal experiments, but it is not recommended for production or shared hardware.
+Security note: The Compose file above used to set privileged: true in an older revision of this article. This hands the Jenkins container full root-level control of the host. That’s convenient for personal experiments, but it is not recommended for production or shared hardware.
 
 In serious environments:
 
