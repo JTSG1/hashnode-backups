@@ -68,7 +68,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-Security note: The Compose file above used to set privileged: true in an older revision of this article. This hands the Jenkins container full root-level control of the host. That’s convenient for personal experiments, but it is not recommended for production or shared hardware.
+*Create a .env file next to docker-compose.yaml with myname=&lt;your-linux-user&gt; or export myname before you run docker-compose. (Or simply replace this value in the docker-compose file before you run it with your Linux username)*
+
+**Security note**: The Compose file above used to set privileged: true in an older revision of this article. This hands the Jenkins container full root-level control of the host. That’s convenient for personal experiments, but it is not recommended for production or shared hardware.
 
 In serious environments:
 
