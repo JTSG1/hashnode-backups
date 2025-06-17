@@ -30,13 +30,13 @@ cd jenkins
 Now I want to create a Dockerfile, I achieve this by running
 
 ```bash
-vi dockerfile
+vi Dockerfile
 ```
 
 The contents of the that I created are below, as you can see I am creating this from the jenkins/jenkins:lts base image and then I am installing Python3 and associated tools.
 
 ```dockerfile
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:lts-jdk17
 
 USER root
 
@@ -89,7 +89,7 @@ Once this file is created you can run the command below to run it. I have added 
 docker-compose up -d --build
 ```
 
-You can then navigate to http://%your-docker-host%:8090 to star the setup on the Jenkins instance. For the purpose of this activity all the defaults are fine during the setup wizard. Don't forget to set a memorable username and password!
+You can then navigate to http://%your-docker-host%:8090 to start the setup on the Jenkins instance. For the purpose of this activity all the defaults are fine during the setup wizard. Don't forget to set a memorable username and password!
 
 Once that is setup we are good to proceed onto the next step...
 
@@ -124,7 +124,7 @@ Once you have the PAT it is time to configure the Credentials with your shiny ne
 
 ### Now for Jenkins config
 
-To add this PAT to jenkins navigate to your instance and login in
+To add this PAT to Jenkins navigate to your instance and login in
 
 From Dashboard, click Manage Jenkins and then select 'credentials' from within in there click "System" &gt; "Global Credentials" &gt; "+ Add Credentials" the default option should be "Username and Password" and this is what we want.
 
@@ -151,7 +151,7 @@ From Jenkins Dashboard select "+ New Item" when the page loads give it a name an
     
 * Select "Add Source" and Choose "Github"
     
-* In crendentials, in the drop down select the credential you just created
+* In credentials, in the drop down select the credential you just created
     
 * Get your Repositories HTTPS clone link and paste it in
     
