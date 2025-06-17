@@ -52,7 +52,7 @@ USER jenkins
 Now create a file called docker-compose.yaml in a folder on your system. and populate it like the below:
 
 ```yaml
-Version: '3.8'
+version: '3.8'
 services:
   jenkins:
     build: . 
@@ -60,13 +60,26 @@ services:
     user: root
     restart: always
     ports:
-     - 8090:8080
-     - 50000:50000
+      - 8090:8080
+      - 50000:50000
     container_name: jenkins
     volumes:
       - /home/${myname}/jenkins_compose/jenkins_configuration:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
 ```
+
+Security note: The Compose file above sets privileged: true, which hands the Jenkins container full root-level control of the host. That’s convenient for personal experiments, but it is not recommended for production or shared hardware.
+
+In serious environments:
+
+* Run Jenkins as an unprivileged UID/GID that matches a real user on the host.
+    
+
+* Give that user access to Docker only by adding it to the docker group (or by using a remote build agent), rather than running the container in --privileged mode.
+    
+
+* Mount /var/run/docker.sock read-only if the jobs merely build images; use root-less buildkit or a dedicated DinD sidecar if you need full write access.
+    
 
 Worth noting in this instance, I am using the build field rather than specifying a pre-created image. This means that when I run Docker Compose it will run the dockerfile that is in the same directory to build the image before deploying the image to a running container.
 
