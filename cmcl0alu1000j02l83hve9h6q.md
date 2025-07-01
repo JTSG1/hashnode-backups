@@ -37,13 +37,6 @@ Instead of grinding through them manually, I’m using large-language-model code
     Commit the file on a new branch, push, and open a pull-request back to `main`. Branch/PR names must be traceable (`feat/basic-svc-<slug>`, etc.).
     
 
-| Step | What must happen | Notes |
-| --- | --- | --- |
-| 1\. Detect new service | Scan the curated list (JSON produced from Awesome-Self-Hosted). |  |
-| 2\. Generate code | Produce a Python subclass of `ServiceBase` that performs a simple “is-alive” check. |  |
-| Must compile and lint clean. |  |  |
-| 3\. Create PR | Commit the file on a new branch, push, and open a pull-request back to `main`. Branch/PR names must be traceable (`feat/basic-svc-<slug>`, etc.). |  |
-
 **Determinism & safety**
 
 * Same input → same output. If the model drifts, retry up to *n* times, then quarantine the service.
