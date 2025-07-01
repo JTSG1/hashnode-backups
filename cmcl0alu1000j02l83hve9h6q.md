@@ -12,7 +12,8 @@ tags: ai, tooling, boilerplate, ci-cd, llm
 
 [https://github.com/JTSG1/GreyhoundDash](https://github.com/JTSG1/GreyhoundDash)
 
-I’m building **GreyhoundDash**, a monitoring dashboard that can run either self-hosted or as SaaS.  
+I’m building **GreyhoundDash**, a monitoring dashboard that can run either self-hosted or as SaaS.
+
 To recognise and health-check the long tail of open-source, self-hostable services, the dashboard needs a machine-readable definition for each one.
 
 Hand-authoring those definitions doesn’t scale; the Awesome-Self-Hosted index alone lists hundreds of candidates.
