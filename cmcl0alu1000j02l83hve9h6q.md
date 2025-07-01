@@ -14,6 +14,8 @@ tags: ai, tooling, boilerplate, ci-cd, llm
 
 I’m building **GreyhoundDash**, a monitoring dashboard that can run either self-hosted or as SaaS.
 
+The dashboard is intended as a tool to help users monitor the self-hosted applications from a single view. This is definitely not a unique endeavour as there are many others like Heimdal. But it serves as an interesting platform to base a few different experiments from.
+
 To recognise and health-check the long tail of open-source, self-hostable services, the dashboard needs a machine-readable definition for each one.
 
 Hand-authoring those definitions doesn’t scale; the Awesome-Self-Hosted index alone lists hundreds of candidates.
