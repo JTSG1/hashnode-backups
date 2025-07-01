@@ -15,7 +15,8 @@ tags: ai, tooling, boilerplate, ci-cd, llm
 I’m building **GreyhoundDash**, a monitoring dashboard that can run either self-hosted or as SaaS.  
 To recognise and health-check the long tail of open-source, self-hostable services, the dashboard needs a machine-readable definition for each one.
 
-Hand-authoring those definitions doesn’t scale; the Awesome-Self-Hosted index alone lists hundreds of candidates.  
+Hand-authoring those definitions doesn’t scale; the Awesome-Self-Hosted index alone lists hundreds of candidates.
+
 Instead of grinding through them manually, I’m using large-language-model code generation to create the boilerplate classes automatically. This series documents the experiment—why I chose the approach, how the tooling is wired together, and what still needs tightening up.
 
 ## Requirements
@@ -25,8 +26,8 @@ Instead of grinding through them manually, I’m using large-language-model code
 | Step | What must happen | Notes |
 | --- | --- | --- |
 | 1\. Detect new service | Scan the curated list (JSON produced from Awesome-Self-Hosted). |  |
-| 2\. Generate code | Produce a Python subclass of `ServiceBase` that performs a simple “is-alive” check.  
-Must compile and lint clean. |  |
+| 2\. Generate code | Produce a Python subclass of `ServiceBase` that performs a simple “is-alive” check. |  |
+| Must compile and lint clean. |  |  |
 | 3\. Create PR | Commit the file on a new branch, push, and open a pull-request back to `main`. Branch/PR names must be traceable (`feat/basic-svc-<slug>`, etc.). |  |
 
 **Determinism & safety**
@@ -173,13 +174,13 @@ The automation lives in `/tooling` and is split into two well-defined actors:
 
 | Actor | Responsibility | Why separate? |
 | --- | --- | --- |
-| `ServiceGenerator` | \- Iterate over the JSON cache  
-\- Call OpenAI, validate the `ServiceResponseSchema`  
-\- Write the new `service_*.py` files  
-\- Update `awesome_selfhosted_services_completed.json` | Pure “business logic” & prompt-handling; no Git side-effects. |
-| `GithubPRCreator` | \- Spawn a branch  
-\- `git add/commit/push`  
-\- Open a pull-request via GitHub API | Keeps VCS concerns isolated; lets you swap GitHub for GitLab later. |
+| `ServiceGenerator` | \- Iterate over the JSON cache |  |
+| \- Call OpenAI, validate the `ServiceResponseSchema` |  |  |
+| \- Write the new `service_*.py` files |  |  |
+| \- Update `awesome_selfhosted_services_completed.json` | Pure “business logic” & prompt-handling; no Git side-effects. |  |
+| `GithubPRCreator` | \- Spawn a branch |  |
+| \- `git add/commit/push` |  |  |
+| \- Open a pull-request via GitHub API | Keeps VCS concerns isolated; lets you swap GitHub for GitLab later. |  |
 
 #### `GithubPRCreator` (excerpt)
 
