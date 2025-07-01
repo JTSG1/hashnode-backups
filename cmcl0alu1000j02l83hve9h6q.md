@@ -187,9 +187,9 @@ ServiceGenerator
 |  | \- Call OpenAI, validate the `ServiceResponseSchema` |  |
 |  | \- Write the new `service_*.py` files |  |
 |  | \- Update `awesome_selfhosted_services_completed.json` |  |
-| `GithubPRCreator` | \- Spawn a branch |  |
+| `GithubPRCreator` | \- Spawn a branch | Keeps VCS concerns isolated; lets you swap GitHub for GitLab later. |
 |  | \- `git add/commit/push` |  |
-|  | \- Open a pull-request via GitHub API | Keeps VCS concerns isolated; lets you swap GitHub for GitLab later. |
+|  | \- Open a pull-request via GitHub API |  |
 
 #### `GithubPRCreator` (excerpt)
 
