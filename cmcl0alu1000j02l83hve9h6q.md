@@ -179,15 +179,17 @@ Future cleanup: swap the naïve `.replace()` for `str.format_map()` so accidenta
 
 The automation lives in `/tooling` and is split into two well-defined actors:
 
-| Actor | Responsibility | Why separate? |
+ServiceGenerator
+
+| Actor | Responsibility | Why seperate |
 | --- | --- | --- |
-| `ServiceGenerator` | \- Iterate over the JSON cache |  |
-| \- Call OpenAI, validate the `ServiceResponseSchema` |  |  |
-| \- Write the new `service_*.py` files |  |  |
-| \- Update `awesome_selfhosted_services_completed.json` | Pure “business logic” & prompt-handling; no Git side-effects. |  |
+| `ServiceGenerator` | \- Iterate over the JSON cache | Pure “business logic” & prompt-handling; no Git side-effects. |
+|  | \- Call OpenAI, validate the `ServiceResponseSchema` |  |
+|  | \- Write the new `service_*.py` files |  |
+|  | \- Update `awesome_selfhosted_services_completed.json` |  |
 | `GithubPRCreator` | \- Spawn a branch |  |
-| \- `git add/commit/push` |  |  |
-| \- Open a pull-request via GitHub API | Keeps VCS concerns isolated; lets you swap GitHub for GitLab later. |  |
+|  | \- `git add/commit/push` |  |
+|  | \- Open a pull-request via GitHub API | Keeps VCS concerns isolated; lets you swap GitHub for GitLab later. |
 
 #### `GithubPRCreator` (excerpt)
 
