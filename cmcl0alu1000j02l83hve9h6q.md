@@ -1,5 +1,5 @@
 ---
-title: "Using AI to generate repetitive code automatically"
+title: "Using AI to generate repetitive code automatically with Python"
 seoTitle: "Using AI to generate code"
 seoDescription: "GreyhoundDash automates service integrations for a self-hosted monitoring dashboard with LLM-generated code and batch GitHub PRs—zero manual boilerplate."
 datePublished: Tue Jul 01 2025 20:54:42 GMT+0000 (Coordinated Universal Time)
