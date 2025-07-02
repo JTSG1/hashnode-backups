@@ -196,7 +196,7 @@ ServiceGenerator
 #### `GithubPRCreator` (excerpt)
 
 ```python
-pythonCopyEditdef create_branch_and_raise_pr(self, branch, services):
+def create_branch_and_raise_pr(self, branch, services):
     # 1. git checkout -b <branch>
     # 2. git add -A && git commit -m "feat: ..."
     # 3. git push -u origin <branch>
